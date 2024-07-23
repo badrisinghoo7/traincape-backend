@@ -17,7 +17,11 @@ const bookSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  link: {
+  pdflink: {
+    type: String,
+    required: true,
+  },
+  Doclink: {
     type: String,
     required: true,
   },
