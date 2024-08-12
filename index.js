@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const { connection } = require("./db");
-// const compression = require("compression");
 
 const { userRouter } = require("./routes/user.routes");
 const { reviewRouter } = require("./routes/review.routes");
@@ -12,7 +11,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-// app.use(compression());
+
 
 app.use("/users", userRouter);
 app.use("/review", reviewRouter);
