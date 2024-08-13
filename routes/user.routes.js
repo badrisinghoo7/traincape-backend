@@ -34,15 +34,19 @@ userRouter.post("/login", async (req, res) => {
               { userId: user._id, username: user.username },
               process.env.secretKey
             ),
+            user,
           });
+        } else {
+          console.log(err);
+          res.status(402).send({ error: err });
         }
         // result == true
       });
     } else {
-      res.status(200).send({ msg: "Wrong Credentials" });
+      res.status(400).send({ msg: "Wrong Credentials" });
     }
   } catch (error) {
-    res.status(400).send({ error: error });
+    res.status(400).send({ error: error.message });
   }
 });
 
